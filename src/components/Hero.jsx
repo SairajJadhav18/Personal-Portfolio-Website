@@ -11,16 +11,24 @@ export default function Hero() {
           className="w-full h-full object-cover rounded-full scale-105 transition-transform duration-300"
         />
       </div>
-      <h1 className="text-5xl font-bold mb-4">Hi, My name is Sairaj Jadhav</h1>
-      <p className="text-xl mb-6">
-        I am a passionate Computer Science student and aspiring full-stack developer.
-        I build secure, user-focused web applications and love turning ideas into interactive digital experiences. 
-        With hands-on experience in React, Node.js, MySQL, and cybersecurity principles, I'm on a mission to create impactful tech that solves real-world problems.
-      </p>
-      <p> I enjoy solving complex problems through clean, scalable code and data-driven decisions. 
-        With hands-on experience across front-end and back-end systems, database management, and threat analysis tools like Wireshark, 
-        I am driven to create secure, intelligent, and user-centric solutions.
-      </p>
+     <div className="max-w-3xl mx-auto text-center">
+  <h1 className="text-5xl font-bold mb-6">
+    Hi, My name is Sairaj Jadhav
+  </h1>
+
+  <p className="text-xl mb-6 leading-relaxed">
+    I am a passionate Computer Science student and aspiring full-stack developer.
+    I build secure, user-focused web applications and love turning ideas into interactive digital experiences. 
+    With hands-on experience in React, Node.js, MySQL, and cybersecurity principles, I'm on a mission to create impactful tech that solves real-world problems.
+  </p>
+
+  <p className="text-lg leading-relaxed">
+    I enjoy solving complex problems through clean, scalable code and data-driven decisions. 
+    With hands-on experience across front-end and back-end systems, database management, and threat analysis tools like Wireshark, 
+    I am driven to create secure, intelligent, and user-centric solutions.
+  </p>
+</div>
+
       <div className="space-x-4">
         <a
           href="/resume.pdf"

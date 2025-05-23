@@ -13,9 +13,14 @@ export default function Hero() {
       </div>
       <h1 className="text-5xl font-bold mb-4">Hi, My name is Sairaj Jadhav</h1>
       <p className="text-xl mb-6">
-        Aspiring Software Engineer | AI & Cloud Enthusiast
+        I am a passionate Computer Science student and aspiring full-stack developer.
+        I build secure, user-focused web applications and love turning ideas into interactive digital experiences. 
+        With hands-on experience in React, Node.js, MySQL, and cybersecurity principles, I'm on a mission to create impactful tech that solves real-world problems.
       </p>
-
+      <p> I enjoy solving complex problems through clean, scalable code and data-driven decisions. 
+        With hands-on experience across front-end and back-end systems, database management, and threat analysis tools like Wireshark, 
+        I am driven to create secure, intelligent, and user-centric solutions.
+      </p>
       <div className="space-x-4">
         <a
           href="/resume.pdf"

@@ -39,7 +39,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full bg-white dark:bg-gray-900 shadow z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <span className="text-xl font-bold">Sairaj</span>
+       <img
+  src="/favicon.svg"
+  alt="Logo"
+  className="h-8 w-8 object-contain transition-transform duration-300 hover:scale-110"
+/>
+
         <div className="flex items-center gap-6">
           <div className="flex gap-4 text-sm font-medium">
             {sections.map(({ id, label }) => (

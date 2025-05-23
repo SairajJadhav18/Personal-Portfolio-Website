@@ -9,13 +9,12 @@ import Resume from "./components/Resume";
 import Navbar from "./components/Navbar";
 import Timeline from "./components/Timeline";
 
-
 import "./index.css";
 
 export default function App() {
   return (
     <ThemeProvider>
-        <Navbar />
+      <Navbar />
       <main className="bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen transition-colors duration-300">
         <Hero />
         <Projects /> 

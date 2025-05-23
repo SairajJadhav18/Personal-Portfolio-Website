@@ -5,14 +5,12 @@ export default function Hero() {
       className="scroll-mt-20 flex flex-col items-center justify-center h-screen text-center px-4"
     >
       <div className="relative w-48 h-48 mb-6 rounded-full overflow-hidden bg-gradient-to-tr from-blue-500 to-purple-600 p-1 shadow-xl hover:scale-105 transition duration-300">
-  <img
-    src="/profile.jpg"
-    alt="Sairaj Jadhav"
-    className="w-full h-full object-cover rounded-full"
-  />
-</div>
-
-
+        <img
+          src="/profile.jpg"
+          alt="Sairaj Jadhav"
+          className="w-full h-full object-cover rounded-full scale-105 transition-transform duration-300"
+        />
+      </div>
       <h1 className="text-5xl font-bold mb-4">Hi, My name is Sairaj Jadhav</h1>
       <p className="text-xl mb-6">
         Aspiring Software Engineer | AI & Cloud Enthusiast

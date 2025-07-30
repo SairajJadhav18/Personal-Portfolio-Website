@@ -8,6 +8,7 @@ import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
 import Contact from "./components/Contact";
 import Resume from "./components/Resume";
+import { Analytics } from "@vercel/analytics/react"
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -26,6 +27,7 @@ export default function App() {
         <Contact />
         <Resume />
       </main>
+      <Analytics />
     </ThemeProvider>
   );
 }

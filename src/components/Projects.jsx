@@ -1,12 +1,127 @@
+import React from "react";
+import Slider from "react-slick";
 import { motion } from "framer-motion";
+// Import images from src/images/
+import NshealthAccountRegisteration from '../images/NshealthAccountRegisteration.png';
+import NshealthDrugcategories from '../images/NshealthDrugcategories.png';
+import Emailcomposepage from '../images/emailcomposepage.png';
+import Ngowebsiteonboarding from '../images/ngowebsiteonboarding.png';
+import Pokemonpodextypes from '../images/pokemonpodextypes.png';
+import QuickcashLocationTrack from '../images/quickcash_location_track.png';
+import Tasktrackerwebapp from '../images/tasktrackerwebapp.png';
+import NshealthLandingPage from '../images/NshealthLandingPage.png';
+import F1AssistantWeb from '../images/f1-assistant-web.jpg';
+import Pokemonpodex from '../images/pokemonpodex.png';
+import Popquestgamehomepage from '../images/popquestgamehomepage.png';
+import Roombookingsystem from '../images/roombookingsystem.png';
+import Roombookingsystemcaraousel from '../images/roombookingsystemcaraousel.png';
+import Roomcatalog from '../images/roomcatalog.png';
+import Emailwebapphomepage from '../images/emailwebapphomepage.png';
+import Pokemonpodexfavourites from '../images/pokemonpodexfavourites.png';
+import Pokemonpodexfilter from '../images/pokemonpodexfilter.png';
+import Pokemonpodexfilter2 from '../images/pokemonpodexfilter2.png';
+import Popquestgamelevel1 from '../images/popquestgamelevel1.png';
+import Popquestgamelevel1jump from '../images/popquestgamelevel1jump.png';
+import Popquestgamelevels from '../images/popquestgamelevels.png';
+import Roomsearchdetails from '../images/roomsearchdetails.png';
+import Ngoadmindashboard from '../images/ngoadmindashboard.png';
+import Ngowebsitehomepage from '../images/ngowebsitehomepage.png';
+import Azureidandgovernancecertificate from '../images/azureidandgovernancecertificate.png';
+import AppointmentBookingAppImage from '../images/appointmentBookingApp.png';
+
 
 const projects = [
+  
   {
     title: "Appointment Booking App",
     description: "AWS-based web app with secure appointment scheduling and a user-friendly interface.",
     tech: ["React", "Node.js", "Aurora MySQL", "EC2", "S3"],
     github: "https://github.com/SairajJadhav18/appointment-booking-app",
     demo: "",
+    images: [AppointmentBookingAppImage, AppointmentBookingAppImage, AppointmentBookingAppImage],
+  },
+  {
+    title: "QuickCash Job App",
+    description: "Android job platform with Firebase auth and real-time listings.",
+    tech: ["Java", "Android Studio", "Firebase", "JSON"],
+    github: "https://github.com/SairajJadhav18/quickcash-android",
+    demo: "",
+    images: [QuickcashLocationTrack, Tasktrackerwebapp],
+  },
+  {
+    title: "Pokédex – Pokémon Explorer App",
+    description: "PokéAPI-powered app for browsing, filtering, and saving favorite Pokémon.",
+    tech: ["HTML", "CSS", "JavaScript", "Bootstrap", "PokéAPI"],
+    github: "https://github.com/SairajJadhav18/pokedex-pokemon-explorer-app",
+    demo: "",
+    images: [
+      Pokemonpodex,
+      Pokemonpodextypes,
+      Pokemonpodexfavourites,
+      Pokemonpodexfilter,
+      Pokemonpodexfilter2,
+    ],
+  },
+  {
+    title: "Room Booking System",
+    description: "PHP app to filter, view, and book hotel rooms with session storage.",
+    tech: ["PHP", "Bootstrap", "JavaScript", "JSON", "jQuery"],
+    github: "https://github.com/SairajJadhav18/room-booking-service",
+    demo: "",
+    images: [
+      Roombookingsystem,
+      Roombookingsystemcaraousel,
+      Roomcatalog,
+      Roomsearchdetails,
+    ],
+  },
+  {
+    title: "Email Web App",
+    description: "Full-stack mail client with login, inbox/sent views, and secure sessions.",
+    tech: ["Node.js", "Express", "MySQL", "Bootstrap", "Sessions"],
+    github: "https://git.cs.dal.ca/courses/2025-winter/csci-2170/assignments/a4/sjadhav.git",
+    demo: "",
+    images: [Emailwebapphomepage, Emailcomposepage],
+  },
+  {
+    title: "NGO Website",
+    description: "Onboarding and admin dashboard for NGO donation platform.",
+    tech: ["React", "Firebase", "Cloudinary", "JavaScript"],
+    github: "", // Add if available
+    demo: "",
+    images: [Ngowebsiteonboarding, Ngoadmindashboard, Ngowebsitehomepage],
+  },
+  {
+    title: "Pop Quest Game",
+    description: "Platformer game with multiple levels and smooth animations.",
+    tech: ["HTML", "CSS", "JavaScript", "Canvas"],
+    github: "", // Add if available
+    demo: "",
+    images: [Popquestgamehomepage, Popquestgamelevel1, Popquestgamelevel1jump, Popquestgamelevels],
+  },
+  {
+    title: "Nova Scotia Health – Geriatric App",
+    description: "React-based healthcare interface with custom drug logic and backend APIs.",
+    tech: ["React", "JavaScript", "Express.js", "C#", "HTML/CSS"],
+    github: "https://github.com/SairajJadhav18/geriatrics-health-app",
+    demo: "",
+    images: [NshealthAccountRegisteration, NshealthDrugcategories, NshealthLandingPage],
+  },
+  {
+    title: "Formula 1 Live Stats Database",
+    description: "MySQL + Python database with real-time data integration from Kaggle.",
+    tech: ["Python", "MySQL", "API Integration"],
+    github: "https://github.com/SairajJadhav18/f1-live-database",
+    demo: "",
+    images: [F1AssistantWeb,F1AssistantWeb,F1AssistantWeb],
+  },
+  {
+    title: "Azure ID and Governance Certificate",
+    description: "Certification showing expertise in Azure identity and governance.",
+    tech: ["Certificate"],
+    github: "",
+    demo: "",
+    images: [Azureidandgovernancecertificate,Azureidandgovernancecertificate,Azureidandgovernancecertificate],
   },
   {
     title: "AI Dashboard",
@@ -16,25 +131,12 @@ const projects = [
     demo: "",
   },
   {
-    title: "Nova Scotia Health – Geriatric App",
-    description: "React-based healthcare interface with custom drug logic and backend APIs.",
-    tech: ["React", "JavaScript", "Express.js", "C#", "HTML/CSS"],
-    github: "https://github.com/SairajJadhav18/geriatrics-health-app",
-    demo: "",
-  },
-  {
-    title: "Formula 1 Live Stats Database",
-    description: "MySQL + Python database with real-time data integration from Kaggle.",
-    tech: ["Python", "MySQL", "API Integration"],
-    github: "https://github.com/SairajJadhav18/f1-live-database",
-    demo: "",
-  },
-  {
     title: "ER Queue Optimizer – AI Hackathon (3rd Place)",
     description: "Bias-free triage system using Flask, SQLAlchemy, and Ollama LLM.",
     tech: ["Python", "Flask", "SQLAlchemy", "Ollama"],
     github: "https://github.com/SairajJadhav18/er-priority-ai",
     demo: "",
+    images: [], // No images available
   },
   {
     title: "Huffman Coding – Compression Algorithm",
@@ -42,49 +144,30 @@ const projects = [
     tech: ["Java", "Python", "DSA"],
     github: "https://github.com/SairajJadhav18/huffman-tree-java-python",
     demo: "",
+    images: [], // No images available
   },
-  {
-    title: "QuickCash Job App",
-    description: "Android job platform with Firebase auth and real-time listings.",
-    tech: ["Java", "Android Studio", "Firebase", "JSON"],
-    github: "https://github.com/SairajJadhav18/quickcash-android",
-    demo: "",
-  },
-  {
-    title: "Pokédex – Pokémon Explorer App",
-    description: "PokéAPI-powered app for browsing, filtering, and saving favorite Pokémon.",
-    tech: ["HTML", "CSS", "JavaScript", "Bootstrap", "PokéAPI"],
-    github: "https://github.com/SairajJadhav18/pokedex-pokemon-explorer-app",
-    demo: "",
-  },
-  {
-    title: "Room Booking System",
-    description: "PHP app to filter, view, and book hotel rooms with session storage.",
-    tech: ["PHP", "Bootstrap", "JavaScript", "JSON", "jQuery"],
-    github: "https://github.com/SairajJadhav18/room-booking-service",
-    demo: "",
-  },
-  {
-    title: "Email Web App",
-    description: "Full-stack mail client with login, inbox/sent views, and secure sessions.",
-    tech: ["Node.js", "Express", "MySQL", "Bootstrap", "Sessions"],
-    github: "https://git.cs.dal.ca/courses/2025-winter/csci-2170/assignments/a4/sjadhav.git",
-    demo: "",
-  },
+  
 ];
+
 
 const containerVariants = {
   hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  show: { transition: { staggerChildren: 0.15 } },
 };
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const imageSliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 400,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: false,
 };
 
 export default function Projects() {
@@ -93,12 +176,12 @@ export default function Projects() {
       <h2 className="text-4xl font-bold mb-10 text-center text-gray-900 dark:text-white">
         Projects
       </h2>
+
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         variants={containerVariants}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
+        animate="show"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {projects.map((project, idx) => (
           <motion.div
@@ -112,6 +195,24 @@ export default function Projects() {
             <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
               {project.description}
             </p>
+
+            {/* Render image carousel if images exist */}
+            {project.images && project.images.length > 0 && (
+  <div className="mb-4">
+    <Slider {...imageSliderSettings}>
+      {project.images.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`${project.title} screenshot ${i + 1}`}
+          className="w-full h-48 object-cover rounded-lg"
+        />
+      ))}
+    </Slider>
+  </div>
+)}
+
+
             <div className="flex flex-wrap gap-2 text-sm mb-4">
               {project.tech.map((t, i) => (
                 <span

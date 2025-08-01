@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 // Import images from src/images/
 import NshealthAccountRegisteration from '../images/NshealthAccountRegisteration.png';
 import NshealthDrugcategories from '../images/NshealthDrugcategories.png';
@@ -38,16 +39,16 @@ const projects = [
     tech: ["React", "Node.js", "Aurora MySQL", "EC2", "S3"],
     github: "https://github.com/SairajJadhav18/appointment-booking-app",
     demo: "",
-    images: [AppointmentBookingAppImage, AppointmentBookingAppImage, AppointmentBookingAppImage],
+    images: [AppointmentBookingAppImage, Tasktrackerwebapp, AppointmentBookingAppImage],
   },
   {
-    title: "QuickCash Job App",
-    description: "Android job platform with Firebase auth and real-time listings.",
-    tech: ["Java", "Android Studio", "Firebase", "JSON"],
-    github: "https://github.com/SairajJadhav18/quickcash-android",
-    demo: "",
-    images: [QuickcashLocationTrack, Tasktrackerwebapp],
-  },
+  title: "QuickCash Job App",
+  description: "Android job platform with Firebase auth and real-time listings.",
+  tech: ["Java", "Android Studio", "Firebase", "JSON"],
+  github: "https://github.com/SairajJadhav18/quickcash-android",
+  demo: "/quickcashdemo.mp4",  // <-- relative to public folder root
+  images: [QuickcashLocationTrack, QuickcashLocationTrack, QuickcashLocationTrack],
+},
   {
     title: "Pokédex – Pokémon Explorer App",
     description: "PokéAPI-powered app for browsing, filtering, and saving favorite Pokémon.",
@@ -120,9 +121,17 @@ const projects = [
     description: "Certification showing expertise in Azure identity and governance.",
     tech: ["Certificate"],
     github: "",
-    demo: "",
-    images: [Azureidandgovernancecertificate,Azureidandgovernancecertificate,Azureidandgovernancecertificate],
+    demo: "/azureidandgovernancecertificate.pdf",
+    images: [],
   },
+  {
+  title: "Cybersecurity Fundamentals Certificate - SHIFTKEY Labs",
+  description: "Certification demonstrating knowledge of cybersecurity principles and practices.",
+  tech: ["Certificate"],
+  github: "",
+  demo: "/practicalcybersecuritycertification.pdf",
+  images: [],
+},
   {
     title: "AI Dashboard",
     description: "Power BI dashboard integrating NLP-based copilot search for insights.",
@@ -131,7 +140,7 @@ const projects = [
     demo: "",
   },
   {
-    title: "ER Queue Optimizer – AI Hackathon (3rd Place)",
+    title: "Emergency Room Queue Optimizer – AI Hackathon (3rd Place)",
     description: "Bias-free triage system using Flask, SQLAlchemy, and Ollama LLM.",
     tech: ["Python", "Flask", "SQLAlchemy", "Ollama"],
     github: "https://github.com/SairajJadhav18/er-priority-ai",
@@ -150,14 +159,23 @@ const projects = [
 ];
 
 
+
 const containerVariants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
 };
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
 const imageSliderSettings = {
@@ -171,8 +189,14 @@ const imageSliderSettings = {
 };
 
 export default function Projects() {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <section id="projects" className="scroll-mt-20 px-6 py-16 max-w-6xl mx-auto">
+    <section
+      id="projects"
+      className="scroll-mt-20 px-6 py-16 max-w-6xl mx-auto"
+      ref={ref}
+    >
       <h2 className="text-4xl font-bold mb-10 text-center text-gray-900 dark:text-white">
         Projects
       </h2>
@@ -180,13 +204,14 @@ export default function Projects() {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="show"
+        animate={inView ? "show" : "hidden"}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
             variants={cardVariants}
+            whileHover={{ scale: 1.05 }}
             className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition"
           >
             <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
@@ -198,20 +223,19 @@ export default function Projects() {
 
             {/* Render image carousel if images exist */}
             {project.images && project.images.length > 0 && (
-  <div className="mb-4">
-    <Slider {...imageSliderSettings}>
-      {project.images.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt={`${project.title} screenshot ${i + 1}`}
-          className="w-full h-48 object-cover rounded-lg"
-        />
-      ))}
-    </Slider>
-  </div>
-)}
-
+              <div className="mb-4">
+                <Slider {...imageSliderSettings}>
+                  {project.images.map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt={`${project.title} screenshot ${i + 1}`}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  ))}
+                </Slider>
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-2 text-sm mb-4">
               {project.tech.map((t, i) => (
@@ -223,7 +247,8 @@ export default function Projects() {
                 </span>
               ))}
             </div>
-            <div className="flex gap-4">
+
+            <div className="flex flex-col gap-4">
               {project.github && (
                 <a
                   href={project.github}
@@ -234,15 +259,35 @@ export default function Projects() {
                   GitHub
                 </a>
               )}
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  className="text-green-600 dark:text-green-400 underline text-sm font-medium"
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+              {project.demo && project.demo.endsWith(".mp4") ? (
+                <video
+                  controls
+                  width="100%"
+                  style={{ maxHeight: "300px", borderRadius: "0.5rem" }}
                 >
-                  Live Demo
-                </a>
+                  <source src={project.demo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : project.demo && project.demo.endsWith(".pdf") ? (
+                <iframe
+                  src={project.demo}
+                  width="100%"
+                  height="400px"
+                  style={{ borderRadius: "0.5rem", marginBottom: "1rem" }}
+                  title={`${project.title} Certificate`}
+                />
+              ) : (
+                project.demo && (
+                  <a
+                    href={project.demo}
+                    className="text-green-600 dark:text-green-400 underline text-sm font-medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                )
               )}
             </div>
           </motion.div>

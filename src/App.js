@@ -3,6 +3,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import ThemeToggle from "./components/ThemeToggle";
 import Hero from "./components/Hero";
+import AnimatedHero from "./components/AnimatedHero";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
@@ -18,14 +19,14 @@ export default function App() {
   return (
     <ThemeProvider>
       <Navbar />
-      <ThemeToggle />
+      
       <main className="bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen transition-colors duration-300">
-        <Hero />
+        <AnimatedHero />
+        <Timeline />
         <Projects />
         <Skills />
-        <Timeline />
-        <Contact />
         <Resume />
+        <Contact />
       </main>
       <Analytics />
     </ThemeProvider>
